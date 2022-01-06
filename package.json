@@ -1,0 +1,20 @@
+{
+  "name": "node-docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Akshit Mithaiwala",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
