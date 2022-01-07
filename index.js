@@ -8,6 +8,7 @@ const {
 } = require("./config/config");
 
 const postRoute = require("./routes/postRoute");
+const authRoute = require("./routes/authRoute");
 
 const app = express();
 
@@ -27,13 +28,14 @@ const connectWithRetry = () => {
 
 connectWithRetry();
 
-app.use(express.json());
+app.use(express.json()); // for parsing application/json requests
 
 app.get("/", (req, res) => {
   res.send("<h1>Hello, I'm Akshit Mithaiwala.</h1>");
 });
 
 app.use("/api/v1/posts", postRoute);
+app.use("/api/v1/auth", authRoute);
 
 const port = process.env.PORT || 3000; //  if port is not set, use 3000
 
