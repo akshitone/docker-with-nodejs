@@ -10,6 +10,7 @@ exports.signUp = async (req, res, next) => {
       username,
       password: hashedPassword,
     });
+    req.session.user = user;
     res.status(201).json({
       success: true,
       data: user,
@@ -34,6 +35,8 @@ exports.logIn = async (req, res, next) => {
     }
     const isMatch = await bcrpyt.compare(password, user.password);
     if (!isMatch) {
+      req.session.user = user;
+      console.log(req.session.user);
       res.status(401).json({
         success: false,
         error: "Incorrect password",
